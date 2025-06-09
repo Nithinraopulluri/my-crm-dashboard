@@ -9,7 +9,6 @@
 
     <script defer src="script.js"></script>
 <style>
-    /* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,6 @@
 }
 
 
-/* Contact Info Section */
 .contact-info {
     display: flex;
     justify-content: space-around;
@@ -35,7 +33,6 @@
     border-radius: 10px;
 }
 
-/* Contact Form Section */
 .contact-form {
     background: #c7b8ea;
     color: black;
@@ -107,12 +104,9 @@ main {
 
 </head>
 <body>
-
    
-    <!-- Main Content -->
     <main>
         <div class="header">CONTACT US</div>
-         <!-- Contact Info Section -->
     <section style="background: transparent;" class="contact-info">
         <div class="info">
             <h2>Dodla Dairy Limited</h2>
@@ -129,7 +123,6 @@ main {
         </div>
     </section>
 
-    <!-- Contact Form Section -->
 
     <section class="contact-form">
         <br></br>
@@ -164,24 +157,7 @@ main {
     </section>
     </main>
 <script>
-    function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    const main = document.getElementById("main");
-    const body = document.body;
-
-    if(sidebar.style.left === "0px"){
-        sidebar.style.left = "-250px";
-        document.body.style.marginLeft = "0";
-        main.style.marginLeft = "0";
-        body.classList.remove("sidebar-open");
-    }else{
-        sidebar.style.left = "0px";
-        document.body.style.marginLeft = "250px";
-        main.style.marginLeft = "250px";
-        body.classList.add("sidebar-open");
-    }
-    }
-
+   
 </script>
 </body>
 </html>

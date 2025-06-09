@@ -33,7 +33,6 @@
             padding: 20px;
         }
 
-         /* Analytics Cards */
          .analytics-overview {
             display: flex;
             gap: 20px;
@@ -55,7 +54,6 @@
 
         .card h3 { margin-bottom: 5px; }
 
-        /* Stock Table */
         .stock-table {
             margin-top: 20px;
             background: white;
@@ -94,7 +92,6 @@
         .out-of-stock { background: #ff6b6b;}
         .running-out{ background: orange ;}
 
-        /* Chart and Most Used */
         .charts-section {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -272,7 +269,6 @@
 
 <main>
     <div class="header">Stock Management</div>
-    <!-- Analytics Overview Cards -->
     <section class="analytics-overview">
         <div class="card green">
             <h3>Total Products</h3>
@@ -292,7 +288,6 @@
         </div>
     </section>
 
-    <!-- Products Stock Table -->
     <section class="stock-table">
         <h2>Products Stock List</h2>
         <br>
@@ -359,16 +354,13 @@
         </div>
    <br>
 
-    <!-- Full Table -->
     <table id="popupTable" border="1" style="width:100%; border-collapse: collapse;">
-      <!-- Headers and rows will be cloned here via JS -->
     </table>
         <br>
 
         <button class="btn add-btn2" onclick="downloadPDF()">Download PDF</button>
 
 </div></div>
-    <!-- Charts and Most Used Section -->
     <section class="charts-section">
         <center><div class="chart-container">
             <h2>Stock Breakdown</h2>
@@ -387,7 +379,6 @@
         </div>
     </section>
 </main>
-    <!-- ChartJS Scripts -->
     <script>
          function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
@@ -435,18 +426,15 @@
 
 <script>
 function openPopup() {
-  const originalTable = document.querySelector('table'); // your main table selector
+  const originalTable = document.querySelector('table');
   const popupTable = document.getElementById('popupTable');
   
-  // Clear existing popup table
   popupTable.innerHTML = "";
 
-  // Clone headers
   const header = originalTable.querySelector('thead') || originalTable.rows[0].parentNode;
   const newHeader = header.cloneNode(true);
   popupTable.appendChild(newHeader);
 
-  // Clone rows
   const rows = originalTable.querySelectorAll('tbody tr') || Array.from(originalTable.rows).slice(1);
   rows.forEach(row => {
     popupTable.appendChild(row.cloneNode(true));

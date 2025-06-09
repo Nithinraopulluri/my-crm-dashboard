@@ -291,7 +291,6 @@
     </div>
   </header>
 
-  <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <ul>
       <li><button onclick="loadPage('sales2.html', this)" class="active"><span class="icon"><i class="fa-solid fa-house"></i></span><span class="text">Home</span></button></li>
@@ -347,7 +346,6 @@
       dropdown.classList.toggle("active");
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener("click", function(event) {
       if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
         dropdown.classList.remove("active");

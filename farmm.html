@@ -12,7 +12,6 @@
 
 
 <style>
-    /* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +20,6 @@
 }
 
 
-/* Main Content */
 main {
     background-color: white;
     background-size: cover;
@@ -122,7 +120,6 @@ main {
 </head>
 <body>
 
-    <!-- Main Content -->
     <main>
         <div class="header">Farm Management</div>
         <div class="dashboard">
@@ -195,13 +192,11 @@ main {
         </div>
 
 <div class="charts-container">
-        <!-- Milk Production Chart -->
         <div class="chart-container">
             <h4>Milk Production</h4>
             <canvas id="milkChart"></canvas>
         </div>
 
-        <!-- Tasks Section -->
         <div class="tasks">
             <h3>Upcoming Tasks & Events</h3>
             <div class="task-item">📅 06 Sep - ED 293720 Vaccination</div>
@@ -232,7 +227,6 @@ main {
     }
 };
 
- // Milk Production Chart
  const ctx = document.getElementById('milkChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',

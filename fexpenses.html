@@ -6,15 +6,10 @@
     <title>Farm Expenses & Profitability</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
-    <!-- Chart.js -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        /* General Styling */
         body {
             font-family: 'Inter', sans-serif;
             background-color: white;
@@ -36,7 +31,6 @@
             color: #333;
         }
 
-        /* Summary Section */
         .cards {
       display: flex;
       flex-wrap: wrap;
@@ -92,7 +86,6 @@
         font-size: 16px;
         color: black;
     }
-        /* Table Section */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -182,7 +175,6 @@
 <div class="header">
     <i class="fas fa-chart-line"></i> Farm Expenses & Profitability
 </div>
-    <!-- Summary Section -->
     <div class="cards">
     <div class="card">
         <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div> 
@@ -203,7 +195,6 @@
                 </div>
     </div>
 
-    <!-- Expenses Table -->
     <table>
         <thead>
             <tr>
@@ -232,12 +223,10 @@
     <option value="2025">2025</option>
   </select>
 </div>
-        <!-- Monthly Profitability Chart -->
         <h3>Monthly Profitability Trend</h3>
         
             <canvas id="profitChart"></canvas>
         </div>
-    <!-- Expense Distribution Chart -->
     <div class="chart-container1">
     <h3>Expense Distribution</h3>
    
@@ -251,7 +240,6 @@
 
 <script>
     
-    // Expense Chart Data
     const expenseData = {
         labels: ["Feed", "Veterinary", "Labor", "Machinery", "Electricity"],
         datasets: [{
@@ -262,7 +250,6 @@
         }]
     };
 
-    // Profit Trend Chart Data
     const profitData = {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
@@ -281,7 +268,6 @@
             }
     };
 
-    // Render Expense Pie Chart
     const expenseChart = new Chart(document.getElementById("expenseChart"), {
         type: "doughnut",
         data: expenseData,
@@ -292,7 +278,6 @@
             }
     });
 
-    // Render Profit Bar Chart
     const profitChart = new Chart(document.getElementById("profitChart"), {
         type: "bar",
         data: profitData,

@@ -163,12 +163,12 @@
         plugins: {
             legend: {
                 display: true,
-                position: 'bottom' // Labels at the bottom
+                position: 'bottom'
             }
         }
     };
 
-    new Chart(document.getElementById('revenueChart'), {
+  /*  new Chart(document.getElementById('revenueChart'), {
         type: 'bar',
         data: {
             labels: months,
@@ -237,7 +237,7 @@
         options: {
                 plugins: { legend: { position: 'bottom' } }
             }
-            });
+            });*/
     new Chart(document.getElementById('salesChart'), {
         type: 'doughnut',
         data: {
@@ -328,7 +328,8 @@ window.onload = () => {
 
   profitChart = new Chart(document.getElementById('profitChart'), {
     type: 'bar',
-    data: { labels: months, datasets: [{ label: 'Profit (₹ Lakhs)', data: farmData.revenue[2024].map((v, i) => v - farmData.expenses[2024][i]), backgroundColor: '#ff5733' }] },
+    data: { labels: months, datasets: [{ label: 'Profit (₹ Lakhs)', data: farmData.revenue[2024].map((v, i) => v - farmData.expenses[2024][i]),                 backgroundColor: ['#ff5733', '#33ff57', '#3357ff', '#ff33a6', '#33fff5', '#a633ff', '#ff8c33', '#57ff33', '#8c33ff', '#ff3333', '#33a6ff', '#f5ff33']
+ }] },
     options: { plugins: { legend: { display: false } } }
   });
 

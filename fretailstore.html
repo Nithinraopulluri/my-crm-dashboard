@@ -10,7 +10,6 @@
 
     <script defer src="script.js"></script>
 <style>
-    /* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -353,9 +352,7 @@ main {
         </div>
    <br>
 
-    <!-- Full Table -->
     <table id="popupTable" border="1" style="width:100%; border-collapse: collapse;">
-      <!-- Headers and rows will be cloned here via JS -->
     </table>
         <br>
 
@@ -421,7 +418,6 @@ main {
 
             }
 
-            // Show "No Records Found" if nothing matches
             noRecordsMessage.style.display = found ? "none" : "flex";
         }
         document.getElementById("searchInput").addEventListener("keyup", function(){
@@ -440,18 +436,15 @@ main {
 
 <script>
 function openPopup() {
-  const originalTable = document.querySelector('table'); // your main table selector
+  const originalTable = document.querySelector('table'); 
   const popupTable = document.getElementById('popupTable');
   
-  // Clear existing popup table
   popupTable.innerHTML = "";
 
-  // Clone headers
   const header = originalTable.querySelector('thead') || originalTable.rows[0].parentNode;
   const newHeader = header.cloneNode(true);
   popupTable.appendChild(newHeader);
 
-  // Clone rows
   const rows = originalTable.querySelectorAll('tbody tr') || Array.from(originalTable.rows).slice(1);
   rows.forEach(row => {
     popupTable.appendChild(row.cloneNode(true));

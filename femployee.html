@@ -241,7 +241,6 @@
     <div class="header">Employees</div>
         <button class="btn add-btn" onclick="openAddForm()">Add Employee</button>
 <br>
-    <!-- Top Cards -->
     <div class="dashboard">
         <div class="card total-employees">
             <h2 id="totalEmployees">989</h2>
@@ -257,7 +256,6 @@
         </div>
     </div>
 
-    <!-- Charts Section -->
     <div class="charts-container">
         <div class="chart-box">
             
@@ -279,7 +277,6 @@
 
    
 
-    <!-- Add Employee Form -->
     <div class="add-employee-form">
         <h3>Add Employee</h3>
         <input type="text" id="employeeName" placeholder="Employee Name">
@@ -384,7 +381,6 @@
             document.getElementById("employeeList").appendChild(employeeCard);
         }
 
-        // Attendance Chart
         let attendanceChart = new Chart(document.getElementById('attendanceChart'), {
             type: 'bar',
             data: {
@@ -416,7 +412,6 @@ function openAddForm() {
         document.getElementById("container").classList.remove("blurred");
 
     }
-        // Department Chart
         let departmentChart = new Chart(document.getElementById('departmentChart'), {
             type: 'doughnut',
             data: {
