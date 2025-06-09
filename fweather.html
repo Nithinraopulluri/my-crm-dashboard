@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather & Climate Alerts - Dairy Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: white;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            padding: 30px;
+            border-radius: 25px;
+            margin-left: 10px;
+            text-align: center;
+            margin-top: 10px;
+            color: white
+    }
+.header i {
+    color: white;
+}
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .weather-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 30px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.07);
+      padding: 20px;
+      width: 400px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card .icon {
+      font-size: 36px;
+      margin-bottom: -10px;
+      color: #2196f3;
+    }
+
+    .card h3 {
+      margin: -40px 50px 5px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .card p {
+      margin: 10px 50px 5px;
+      color: black;
+      font-size: 14px;
+    }
+
+    .alert {
+      background: #fff3cd;
+      border-left: 6px solid #ff9800;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #6d4c41;
+    }
+
+    .impact {
+      margin-top: 15px;
+      background: #e8f5e9;
+      border-left: 6px solid #4caf50;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1><i class="fas fa-cloud-sun-rain"></i> Weather & Climate Alerts</h1>
+  </div>
+
+  <div class="weather-section">
+    <div class="card">
+      <div class="icon"><i class="fas fa-temperature-high"></i></div>
+      <h3>Current Temperature</h3>
+      <p>32°C - Sunny</p>
+      <div class="alert"><strong>Alert:</strong> High temperatures expected in the afternoon. </div>
+         <div class="impact"><strong>Tips:</strong>  Ensure cattle are hydrated.</div>
+
+    </div>
+
+    <div class="card">
+      <div class="icon"><i class="fas fa-cloud-showers-heavy"></i></div>
+      <h3>Rain Forecast</h3>
+      <p>Rain likely in next 48 hours</p>
+      <div class="impact"><strong>Tips:</strong> Prepare shelters and secure feed storage.</div>
+             <div class="alert"><strong>Alert:</strong>  Rain expected today.</div>
+
+    </div>
+
+    <div class="card">
+      <div class="icon"><i class="fas fa-wind"></i></div>
+      <h3>Wind Status</h3>
+      <p>Moderate winds - 18 km/h</p>
+      <div class="impact"><strong>Note:</strong> Secure lightweight equipment on the field.</div>
+            <div class="alert"><strong>Alert:</strong>  Heavy winds are expected.</div>
+
+    </div>
+
+    <div class="card">
+      <div class="icon"><i class="fas fa-seedling"></i></div>
+      <h3>Climate Impact</h3>
+      <p>Recent heatwaves reduces milk yield by 10%</p>
+      <div class="impact"><strong>Tips:</strong> Use coolers/fans during peak hours.</div>
+             <div class="alert"><strong>Alert:</strong>  Heat waves around the city.</div>
+
+    </div>
+  </div>
+
+</body>
+</html>

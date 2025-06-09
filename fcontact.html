@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script defer src="script.js"></script>
+<style>
+    /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Contact Info Section */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: white;
+}
+
+.info {
+    max-width: 50%;
+}
+
+.map iframe {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Contact Form Section */
+.contact-form {
+    background: #c7b8ea;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-form form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.contact-form input, 
+.contact-form select, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.contact-form button {
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background: white;
+}
+
+main {
+    padding: 20px;
+    background: white;
+
+    align-items: center;
+    align-content: normal;
+    overflow-y: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        ::-webkit-scrollbar {
+           display: none;
+        }
+        .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+</style>
+
+</head>
+<body>
+
+   
+    <!-- Main Content -->
+    <main>
+        <div class="header">CONTACT US</div>
+         <!-- Contact Info Section -->
+    <section style="background: transparent;" class="contact-info">
+        <div class="info">
+            <h2>Dodla Dairy Limited</h2>
+            <p>📍 8-2-293/82/A, 270/Q, Road No 10-C, Jubilee Hills, Hyderabad – 500033, Telangana, India.</p>
+            <p>📞 Phone: 040-4546 7777</p>
+            <p>📠 Fax: 040-4546 7788</p>
+            <p>📧 Email: <a href="mailto:mail@dodladairy.com">mail@dodladairy.com</a></p>
+        </div>
+        <div class="map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7839680878146!2d78.39926781545383!3d17.42387868805586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb976fc5a1e889%3A0x2b0ea7351d64e9c!2sDodla%20Dairy%20Limited!5e0!3m2!1sen!2sin!4v1615796020736!5m2!1sen!2sin" 
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+
+    <section class="contact-form">
+        <br></br>
+        <h2>Get In Touch With Us</h2>
+        <p>We value your feedback, inquiries, and suggestions. Please use the form below to get in touch with us.</p>
+
+        <form action="submit_form.php" method="POST">
+            <label style="text-align: left;" for="contact_as">Contact As:</label>
+            <select id="contact_as" name="contact_as">
+                <option value="Customer">Customer</option>
+                <option value="Supplier">Supplier</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label style="text-align: left;" for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label style="text-align: left;" for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label style="text-align: left;" for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label style="text-align: left;" for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label style="text-align: left;" for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    </main>
+<script>
+    function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const main = document.getElementById("main");
+    const body = document.body;
+
+    if(sidebar.style.left === "0px"){
+        sidebar.style.left = "-250px";
+        document.body.style.marginLeft = "0";
+        main.style.marginLeft = "0";
+        body.classList.remove("sidebar-open");
+    }else{
+        sidebar.style.left = "0px";
+        document.body.style.marginLeft = "250px";
+        main.style.marginLeft = "250px";
+        body.classList.add("sidebar-open");
+    }
+    }
+
+</script>
+</body>
+</html>

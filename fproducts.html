@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script defer src="script.js"></script>
+<style>
+    /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Products Section */
+.products {
+    text-align: center;
+    
+    padding: 10px;
+}
+
+.product-container {
+    display: flex;
+    margin-left: 0%;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background: white;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.order-btn {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.order-btn:hover {
+    background-color: darkgreen;
+}
+
+main {
+    padding: 10px;
+    background: white;
+
+    align-items: center;
+    align-content: normal;
+    overflow-y: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        ::-webkit-scrollbar {
+           display: none;
+        }
+        .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+</style>
+
+</head>
+<body>
+
+ 
+
+    <!-- Main Content -->
+    <main>
+        <div class="header">Dodla Dairy Products</div>
+         <!-- Products Section -->
+    <section class="products">
+        
+        
+        <div class="product-container">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img src="fullcreammilk.jpg" alt="Full Cream Milk">
+                <h3>Full Cream Milk</h3>
+                <p>Price: ₹70/L</p>
+                <p>⭐ 4.5 (100+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+                
+            </div>
+            <div class="product-card">
+                <img src="fullcreammilkgold.jpg" alt="Full Cream Milk gold">
+                <h3>Full Cream Gold</h3>
+                <p>Price: ₹100/L</p>
+                <p>⭐ 4.5 (100+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+                
+            </div>
+            <div class="product-card">
+                <img src="teamagicmilk.jpg" alt="Tea Magic Milk">
+                <h3>Tea Magic Milk</h3>
+                <p>Price: ₹80/L</p>
+                <p>⭐ 4.5 (100+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+                
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img src="standardizedmilk.jpg" alt="Standardized Milk">
+                <h3>Standardized Milk</h3>
+                <p>Price: ₹50/L</p>
+                <p>⭐ 4.2 (80+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+            <div class="product-card">
+                <img src="standardizedmilkgold.jpg" alt="Standardized Milk Gold">
+                <h3>Standardized  Gold</h3>
+                <p>Price: ₹70/L</p>
+                <p>⭐ 4.2 (80+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+            <div class="product-card">
+                <img src="cowmilk.jpg" alt="Cow Milk">
+                <h3>Cow Milk</h3>
+                <p>Price: 90/L</p>
+                <p>⭐ 4.2 (80+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+            <div class="product-card">
+                <img src="tonedmilk.jpg" alt="Toned Milk">
+                <h3>Toned Milk</h3>
+                <p>Price: ₹50/L</p>
+                <p>⭐ 4.0 (70+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img src="doubletonedmilk.jpg" alt="Double Toned Milk">
+                <h3>Double Toned Milk</h3>
+                <p>Price: ₹80/L</p>
+                <p>⭐ 4.0 (70+ reviews)</p>
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <img src="paneer.jpg" alt="Paneer">
+                <h3>Panner</h3>
+                <p>Price: ₹400/Kg</p>
+                <p>⭐ 4.3 (89+ reviews)</p>
+                
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+            <div class="product-card">
+                <img src="butter.jpg" alt="Butter">
+                <h3>Butter</h3>
+                <p>Price: ₹150/Kg</p>
+                <p>⭐ 4.3 (99+ reviews)</p>
+                
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+            <div class="product-card">
+                <img src="cheese.jpg" alt="Cheese">
+                <h3>Cheese</h3>
+                <p>Price: ₹500/Kg</p>
+                <p>⭐ 4.3 (90+ reviews)</p>
+           
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+            <div class="product-card">
+                <img src="curd.jpg"" alt="Curd">
+                <h3>Curd</h3>
+                <p>Price: ₹100/Kg</p>
+                <p>⭐ 4.3 (95+ reviews)</p>
+                
+                <br></br>
+                <label>Qty: <input type="number" value="0" min="0"></label>
+                <button class="order-btn">Order</button>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+   
+</script>
+</body>
+</html>

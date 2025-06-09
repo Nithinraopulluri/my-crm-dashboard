@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doodla Dairy - Subscription Management</title>
+  <style>
+    :root {
+      --bg: white;
+      --card-bg: #fff;
+      --primary: #007bff;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --gray: #177dd6;
+      --light: #f1f1f1;
+      --transition: 0.3s ease all;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      padding: 20px;
+      color: black;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      margin-left: 10px;
+      margin-top: 10px;
+      margin-right: 10px;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+       
+        .subscription-container {
+      max-width: 1200px;
+      margin: auto;
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: var(--light);
+      color: var(--gray);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    td {
+      font-size: 15px;
+    }
+
+    .status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      min-width: 80px;
+      transition: var(--transition);
+    }
+
+    .active {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .paused {
+      background-color: #ffe6e6;
+      color: #721c24;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .btn-pause {
+      background-color: var(--warning);
+      color: #000;
+    }
+
+    .btn-resume {
+      background-color: var(--success);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 13px;
+      }
+      .subscription-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    Subscription Management </div>
+    <div class="subscription-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Plan</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Delivery Time</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="subscriptionTable">
+        <tr>
+          <td>Ravi Kumar</td>
+          <td>Daily</td>
+          <td>Milk</td>
+          <td>1 Litre</td>
+          <td>6:30 AM</td>
+          <td><span class="status active">Active</span></td>
+          <td><button class="btn btn-pause" onclick="toggleStatus(this)">Pause</button></td>
+        </tr>
+        <tr>
+          <td>Sneha Patel</td>
+          <td>Weekly (Mon-Wed-Fri)</td>
+          <td>Paneer</td>
+          <td>500g</td>
+          <td>7:00 AM</td>
+          <td><span class="status paused">Paused</span></td>
+          <td><button class="btn btn-resume" onclick="toggleStatus(this)">Resume</button></td>
+        </tr>
+        <tr>
+          <td>Arjun Mehta</td>
+          <td>Daily</td>
+          <td>Milk</td>
+          <td>500 ml</td>
+          <td>6:00 AM</td>
+          <td><span class="status active">Active</span></td>
+          <td><button class="btn btn-pause" onclick="toggleStatus(this)">Pause</button></td>
+        </tr>
+        <tr>
+          <td>Pooja Verma</td>
+          <td>Alternate Days</td>
+          <td>Curd</td>
+          <td>1 Kg</td>
+          <td>8:30 AM</td>
+          <td><span class="status paused">Paused</span></td>
+          <td><button class="btn btn-resume" onclick="toggleStatus(this)">Resume</button></td>
+        </tr>
+        <tr>
+          <td>Rajesh Iyer</td>
+          <td>Daily</td>
+          <td>Ghee</td>
+          <td>200 ml</td>
+          <td>7:15 AM</td>
+          <td><span class="status active">Active</span></td>
+          <td><button class="btn btn-pause" onclick="toggleStatus(this)">Pause</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function toggleStatus(button) {
+      const row = button.closest('tr');
+      const statusCell = row.querySelector('.status');
+
+      statusCell.classList.add('transitioning');
+      setTimeout(() => {
+        if (statusCell.classList.contains('active')) {
+          statusCell.textContent = 'Paused';
+          statusCell.classList.remove('active');
+          statusCell.classList.add('paused');
+          button.textContent = 'Resume';
+          button.className = 'btn btn-resume';
+        } else {
+          statusCell.textContent = 'Active';
+          statusCell.classList.remove('paused');
+          statusCell.classList.add('active');
+          button.textContent = 'Pause';
+          button.className = 'btn btn-pause';
+        }
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>

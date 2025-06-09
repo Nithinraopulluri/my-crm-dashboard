@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doodla Dairy Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: white;
+      transition: margin-left 0.4s;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .left-header {
+    display: flex;
+    align-items: center;
+}
+
+.company-logo {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: none;
+      border-radius: 40px;
+      margin-left: 20px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px rgb(0, 0, 0, 0.1);
+      outline: none;
+      padding: 8px;
+      width: 300px;
+    }
+
+    .search-container input {
+      border: none;
+      border-radius: 25px;
+      outline: none;
+      padding: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .search-container i {
+      margin-right: 10px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .right-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .language {
+      margin-right: 30px;
+    }
+
+    .language select {
+      width: 70px;
+      height: 40px;
+    }
+    .notification-wrapper{
+      
+      margin-left: 300px;
+        position: relative;
+        display: inline-block;
+      }
+  
+      #bell-icon {
+        cursor: pointer;
+        padding: 10px;
+        background: white;
+        border-radius: 50%;
+        transition: background 0.2s;
+      }
+  
+      #bell-icon:hover {
+        background: white;
+      }
+  
+      .dropdown {
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        width: 260px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 12px;
+        display: none;
+      }
+  
+      .dropdown.active {
+        display: block;
+      }
+  
+      .dropdown .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: black;
+      }
+  
+      #notification-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 200px;
+        overflow-y: none;
+      }
+  
+      #notification-list li {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+        color: black;
+      }
+  
+      #notification-list li:last-child {
+        border-bottom: none;
+      }
+    .profile-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .profile-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 30px;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: white;
+      height: calc(100vh - 80px);
+      position: fixed;
+      top: 80px;
+      left: 0;
+      padding-top: 10px;
+      transition: width 0.4s;
+      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.collapsed {
+      width: 80px;
+      align-items: left;
+      margin-left: -15px;
+      border: 10px solid white;
+      
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar button {
+      width: 80%;
+      margin-left: 20px;
+      margin-right: 20px;
+      border: none;
+      background: linear-gradient(to bottom, #badff9, #d1c7fc);
+      margin-bottom: 10px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      gap: 15px;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .sidebar button .icon {
+      color: #3f51b5;
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar button .text {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .sidebar.collapsed .text {
+      display: none;
+    }
+
+    .sidebar button:hover {
+      background: #e6e6fa;
+      cursor: pointer;
+    }
+
+    .sidebar button.active {
+      background: #e6e6fa;
+    }
+
+    .main-content {
+      margin-left: 250px;
+      margin-top: 90px;
+      transition: margin-left 0.4s;
+    }
+
+    body.sidebar-collapsed .main-content {
+      margin-left: 60px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-header">
+      <img src="image.png" >
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <i class="fa-solid fa-search" onclick="searchTable()"></i>
+      </div>
+    </div>
+
+    <div class="right-header">
+      <i class="fa-solid fa-globe fa-2x" style="color: #3f51b5; margin-right: 10px;"></i>
+      <div class="language">
+        <select id="languageFilter">
+          <option value="English">English</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Telugu">Telugu</option>
+          <option value="Tamil">Tamil</option>
+        </select>
+      </div>
+      <span class="notification-icon"><i id="bell-icon" style="color: #3f51b5; margin-right: 20px;" class="fa-solid fa-bell fa-2x"></i></span>
+      <div id="notification-dropdown" class="dropdown">
+      <p class="title">Notifications</p>
+      <ul id="notification-list">
+        <li>New order received</li>
+        <li>Payment failed</li>
+        <li>User registered</li>
+        <li>Server backup completed</li>
+      </ul>
+    </div>
+      <img src="image1.jpg" alt="Profile" class="profile-img">
+      <span class="profile-name">P. Nithin</span>
+      <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><button onclick="loadPage('sales2.html', this)" class="active"><span class="icon"><i class="fa-solid fa-house"></i></span><span class="text">Home</span></button></li>
+      <li><button onclick="loadPage('fproducts.html', this)"><span class="icon"><i class="fa-solid fa-cart-shopping"></i></span><span class="text">Products</span></button></li>
+      <li><button onclick="loadPage('forder.html', this)"><span class="icon"><i class="fa-solid fa-box"></i></span><span class="text">Orders</span></button></li>
+      <li><button onclick="loadPage('fsales.html', this)"><span class="icon"><i class="fa-solid fa-chart-line"></i></span><span class="text">Sales</span></button></li>
+      <li><button onclick="loadPage('femployee.html', this)"><span class="icon"><i class="fa-solid fa-users"></i></span><span class="text">Employees</span></button></li>
+      <li><button onclick="loadPage('finventory.html', this)"><span class="icon"><i class="fa-solid fa-warehouse"></i></span><span class="text">Stock</span></button></li>
+      <li><button onclick="loadPage('fretailstore.html', this)"><span class="icon"><i class="fa-solid fa-store"></i></span><span class="text">Retail Store</span></button></li>
+      <li><button onclick="loadPage('fmilkproductiontrends.html', this)"><span class="icon"><i class="fa-solid fa-industry"></i></span><span class="text">Milk Production</span></button></li>
+      <li><button onclick="loadPage('fexpenses.html', this)"><span class="icon"><i class="fa-solid fa-coins"></i></span><span class="text">Finance</span></button></li>
+      <li><button onclick="loadPage('frevenue.html', this)"><span class="icon"><i class="fa-solid fa-university"></i></span><span class="text">Revenue</span></button></li>
+      <li><button onclick="loadPage('fwastemanagement.html', this)"><span class="icon"><i class="fa-solid fa-recycle"></i></span><span class="text">Waste Management</span></button></li>
+      <li><button onclick="loadPage('fhealth.html', this)"><span class="icon"><i class="fa-solid fa-plus"></i></span><span class="text">Health</span></button></li>
+      <li><button onclick="loadPage('fweather.html', this)"><span class="icon"><i class="fa-solid fa-cloud-sun-rain"></i></span><span class="text">Weather</span></button></li>
+      <li><button onclick="loadPage('fmaintanance.html', this)"><span class="icon"><i class="fa-solid fa-cogs"></i></span><span class="text">Machinery</span></button></li>
+      <li><button onclick="loadPage('fsubscription.html', this)"><span class="icon"><i class="fa-solid fa-users"></i></span><span class="text">Subscriptions</span></button></li>
+      <li><button onclick="loadPage('fdisease.html', this)"><span class="icon"><i class="fa-solid fa-virus"></i></span><span class="text">Disease Tracker</span></button></li>
+      <li><button onclick="loadPage('farmm.html', this)"><span class="icon"><i class="fa-solid fa-tractor"></i></span><span class="text">Farm</span></button></li>
+      <li><button onclick="loadPage('freviews.html', this)"><span class="icon"><i class="fa-solid fa-star"></i></span><span class="text">Reviews</span></button></li>
+      <li><button onclick="loadPage('fcontact.html', this)"><span class="icon"><i class="fa-solid fa-envelope"></i></span><span class="text">Contact</span></button></li>
+      <li><button onclick="confirmLogout()"><span class="icon"><i class="fa-solid fa-sign-out-alt"></i></span><span class="text">Logout</span></button></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <iframe id="contentFrame" src="sales2.html"></iframe>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      document.body.classList.toggle('sidebar-collapsed');
+      sidebar.classList.toggle('collapsed');
+    }
+
+    function loadPage(page, element) {
+      document.getElementById("contentFrame").src = page;
+      document.querySelectorAll(".sidebar button").forEach(btn => btn.classList.remove("active"));
+      element.classList.add("active");
+    }
+
+    function confirmLogout() {
+      if (confirm("Are you sure you want to logout?")) {
+        document.getElementById("contentFrame").src = "";
+        alert("Logged out.");
+      }
+    }
+    const bellIcon = document.getElementById("bell-icon");
+    const dropdown = document.getElementById("notification-dropdown");
+
+    bellIcon.addEventListener("click", () => {
+      dropdown.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+      if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>
+

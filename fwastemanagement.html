@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Management & Compost Tracking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter',  sans-serif;
+            background: white;
+            color: black;
+        }
+        .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      margin-left: 10px;
+      margin-top: 10px;
+      margin-right: 10px;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+       
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #00b09b;
+        }
+        .value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+        }
+        .label {
+            font-size: 0.95em;
+            color: #777;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header" >
+        Waste Management & Compost Tracking
+    </div>
+
+    <div class="dashboard">
+        <div class="card">
+            <h3>Total Waste Generated</h3>
+            <div class="value">2,345 kg</div>
+            <div class="label">This Month</div>
+        </div>
+        <div class="card">
+            <h3>Compost Produced</h3>
+            <div class="value">1,780 kg</div>
+            <div class="label">Converted from Organic Waste</div>
+        </div>
+        <div class="card">
+            <h3>Recycled Waste</h3>
+            <div class="value">320 kg</div>
+            <div class="label">Plastics & Non-Organic</div>
+        </div>
+        <div class="card">
+            <h3>Compost Sales</h3>
+            <div class="value">INR 47,000</div>
+            <div class="label">Revenue from Compost Sales</div>
+        </div>
+        <div class="card">
+            <h3>Pending Waste Pickup</h3>
+            <div class="value">5 Bins</div>
+            <div class="label">To be cleared today</div>
+        </div>
+        <div class="card">
+            <h3>Composting Efficiency</h3>
+            <div class="value">75.8%</div>
+            <div class="label">Organic Waste to Compost Ratio</div>
+        </div>
+        <div class="card">
+            <h3>Top Waste Contributors</h3>
+            <ul>
+                <li>Cow Shed 1 - 540 kg</li>
+                <li>Calf Section - 420 kg</li>
+                <li>Storage Unit - 310 kg</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Recent Compost Batches</h3>
+            <ul>
+                <li>Batch #23 - 220 kg - Ready</li>
+                <li>Batch #24 - 180 kg - In Process</li>
+                <li>Batch #25 - 240 kg - Drying</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Updated in real-time from IoT Compost Monitors and Waste Logs.
+    </div>
+</body>
+</html>

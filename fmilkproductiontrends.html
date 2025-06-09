@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script defer src="script.js"></script>
+<style>
+    /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+
+main {
+    padding: 20px;
+    background: white;
+
+    align-items: center;
+    align-content: normal;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+ /* ---- KPI Cards ---- */
+ .cards {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .card {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid #007BFF;
+        }
+        .card.red {
+            border-top: 5px solid #DC3545;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+        .card p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        /* ---- Charts & Data Cards ---- */
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .chart-container {
+            width: 48%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ---- Additional Data Cards ---- */
+        .data-cards {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .data-card {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid #0056b3;
+        }
+        .data-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .data-card p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        } 
+
+</style>
+
+</head>
+<body>
+
+ 
+<main>
+    <div class="header">Milk Production Trends</div>
+      <!-- KPI Cards -->
+      <div class="cards">
+        <div class="card">
+            <h3>Lactating Cows</h3>
+            <p>2,452</p>
+            <small>Yesterday</small>
+        </div>
+        <div class="card red">
+            <h3>Shipped Milk</h3>
+            <p>85</p>
+            <small>4-day avg on Jun 3</small>
+        </div>
+        <div class="card">
+            <h3>Measured Milk</h3>
+            <p>77</p>
+            <small>On Jun 5</small>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+        <div class="chart-container">
+            <h3>Shipped vs. Measured Milk</h3>
+            <canvas id="milkComparisonChart"></canvas>
+            
+        </div>
+        <div class="chart-container">
+            <h3>Milk Production Trends</h3>
+            <canvas id="milkTrendsChart"></canvas>
+            
+        </div>
+    </div>
+
+    <!-- Additional Metrics -->
+    <div class="data-cards">
+        <div class="data-card">
+            <h3>% Fat</h3>
+            <p>3.64</p>
+            <small>4-day avg on Jun 4</small>
+        </div>
+        <div class="data-card">
+            <h3>% Fat & Protein</h3>
+            <p>2.95</p>
+            <small>4-day avg on Jun 4</small>
+        </div>
+        <div class="data-card">
+            <h3>Lactating DMI</h3>
+            <p>47</p>
+            <small>4-day avg yesterday</small>
+        </div>
+        <div class="data-card">
+            <h3>Conception Rate</h3>
+            <p>55.34</p>
+            <small>Week of Apr 27</small>
+        </div>
+    </div>
+</main>
+
+    <script>
+       
+        new Chart(document.getElementById("milkComparisonChart"), {
+            type: "bar",
+            data: {
+                labels: ["Jun 1", "Jun 2", "Jun 3", "Jun 4", "Jun 5"],
+                datasets: [
+                    {
+                        label: "Shipped Milk",
+                        data: [78, 80, 85, 82, 87],
+                        backgroundColor: "rgba(255, 99, 132, 0.7)"
+                    },
+                    {
+                        label: "Measured Milk",
+                        data: [72, 74, 77, 75, 78],
+                        backgroundColor: "rgba(54, 162, 235, 0.7)"
+                    }
+                ]
+            },
+            options: {
+                plugins: { legend: { position: "bottom" } }
+            }
+        });
+        new Chart(document.getElementById("milkTrendsChart"), {
+            type: "line",
+            data: {
+                labels: ["Jun 1", "Jun 2", "Jun 3", "Jun 4", "Jun 5"],
+                datasets: [
+                    {
+                        label: "Milk Production (liters)",
+                        data: [2500, 2600, 2750, 2650, 2800],
+                        borderColor: "#007BFF",
+                        backgroundColor: "rgba(0, 123, 255, 0.1)",
+                        borderWidth: 2,
+                        fill: true
+                    }],
+                    
+            },
+            options: {
+                plugins: { legend: { position: "false" } }
+            }
+        });
+
+
+
+
+    </script>
+    </body>
+    </html>

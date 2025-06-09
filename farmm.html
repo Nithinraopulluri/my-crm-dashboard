@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+    /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Main Content */
+main {
+    background-color: white;
+    background-size: cover;
+    padding: 30px;
+    align-items: center;
+    align-content: left;
+}
+.dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: #d9f5cc;
+            padding: 20px;
+            border-radius: 15px;
+            border-right: 5px solid rgb(226, 115, 115);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: justify;
+        }
+        .percentage {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px 10px;
+            margin-top: 25px;
+            border-radius: 12px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .weather-card {
+            background: #fef3cd;
+            grid-column: span 2;
+        }
+        .weather-details {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px 10px;
+            margin-top: 25px;
+            border-radius: 12px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .charts-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+        .tasks {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+        .task-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .chart-grid {
+                flex-direction: column;
+            }
+            .chart-box {
+                width: 100%;
+            }
+        }
+        .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+
+</style>
+
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main>
+        <div class="header">Farm Management</div>
+        <div class="dashboard">
+            <div class="card">
+                <span class="percentage">-24%</span>
+                <h4>Total Animals</h4>
+                <br>
+                <br>
+                <p style="font-size: 40px;">12,598</p>
+                <i class="fas fa-paw"></i>
+            </div>
+            <div class="card">
+                <span class="percentage">+12%</span>
+                <h4>Breeding Animals</h4>
+                <br>
+                <br>
+
+                <p style="font-size: 40px;">2,450</p>
+                <i class="fas fa-venus-mars"></i>
+            </div>
+            <div class="card">
+                <span class="percentage">+8%</span>
+                <h4>Weaners</h4>
+                <br>
+                <br>
+
+                <p style="font-size: 40px;">145</p>
+            </div>
+            <div class="card">
+                <span class="percentage">-5%</span>
+                <h4>Newborn Calves</h4>
+                <br>
+                <br>
+
+                <p style="font-size: 40px;">754</p>
+                <i class="fas fa-baby"></i>
+            </div>
+             <div class="card">
+                <span class="percentage">-24%</span>
+
+                <h4>Pregnant Animals</h4>
+                <br>
+                <br>
+
+                <p style="font-size: 40px;">173</p>
+            </div>
+            <div class="card">
+                <h4>Conception Rate</h4>
+                <br>
+                <br>
+
+                <span class="percentage">-24%</span>
+
+                <p style="font-size: 40px;">6,318</p>
+            </div>
+            <div class="card weather-card">
+                <h4>Weather Today</h4>
+                <br>
+                <br>
+
+                <p style="font-size: 40px;"><strong>25°C</strong></p>
+                <div class="weather-details">
+                    <span>48% Humidity</span>
+                    <br>
+                    <span>Wind 6 mph</span>
+                    <br>
+                    <span>Pressure 29.8 in</span>
+                </div>
+            </div>
+        </div>
+
+<div class="charts-container">
+        <!-- Milk Production Chart -->
+        <div class="chart-container">
+            <h4>Milk Production</h4>
+            <canvas id="milkChart"></canvas>
+        </div>
+
+        <!-- Tasks Section -->
+        <div class="tasks">
+            <h3>Upcoming Tasks & Events</h3>
+            <div class="task-item">📅 06 Sep - ED 293720 Vaccination</div>
+            <div class="task-item">📅 14 Oct - Pregnancy Checkup</div>
+            <div class="task-item">📅 23 Dec - Animal Feed Restock</div>
+        </div>
+    </div>
+</div>
+
+        
+    </main>
+    <script>
+        function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const main = document.getElementById("main");
+    const body = document.body;
+
+    if(sidebar.style.left === "0px"){
+        sidebar.style.left = "-250px";
+        document.body.style.marginLeft = "0";
+        main.style.marginLeft = "0";
+        body.classList.remove("sidebar-open");
+    }else{
+        sidebar.style.left = "0px";
+        document.body.style.marginLeft = "250px";
+        main.style.marginLeft = "250px";
+        body.classList.add("sidebar-open");
+    }
+};
+
+ // Milk Production Chart
+ const ctx = document.getElementById('milkChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Milk Production (Liters)',
+                    data: [800, 600, 700, 900, 1100, 1200, 950, 800, 1000, 1100, 1300, 1500],
+                    backgroundColor: '#FFB085'
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+

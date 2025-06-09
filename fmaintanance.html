@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <title>Machinery Monitoring</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: white;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1300px;
+      margin: auto;
+    }
+    .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+
+    .overview {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .overview h3 {
+      margin-top: 0;
+      color: #34495e;
+    }
+    .overview p {
+      color: black;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .box h4 {
+      margin: 0 0 10px;
+      color: #2980b9;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .status span {
+      width: 12px;
+      height: 12px;
+      margin-right: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .running { background: green; }
+    .due { background: orange; }
+    .fault { background: red; }
+
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #f9fbfc;
+      color: #2c3e50;
+    }
+
+    .maintenance {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      Machinery & Equipment Monitoring
+    </div>
+
+    <div class="overview">
+      <h3>Current Operational Overview</h3>
+      <p>
+        Our dairy plant runs a fleet of advanced machinery ensuring efficiency in milk processing,
+        storage, and packaging. Regular monitoring is crucial for operational reliability.
+        Below is a live update on key machinery units including their current performance status.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="box">
+        <h4>Milking Machine</h4>
+        <div class="status"><span class="running"></span> Running Smoothly</div>
+        <p>Last Serviced: 15-Mar-2025</p>
+        <p>Next Due: 15-Apr-2025</p>
+      </div>
+      <div class="box">
+        <h4>Cooling System</h4>
+        <div class="status"><span class="due"></span> Maintenance Due</div>
+        <p>Last Serviced: 01-Feb-2025</p>
+        <p>Next Due: 01-Mar-2025</p>
+      </div>
+      <div class="box">
+        <h4>Pasteurizer</h4>
+        <div class="status"><span class="fault"></span> Fault Detected</div>
+        <p>Last Serviced: 20-Jan-2025</p>
+        <p>Next Due: 20-Feb-2025</p>
+      </div>
+      <div class="box">
+        <h4>Packaging Unit</h4>
+        <div class="status"><span class="running"></span> Running Smoothly</div>
+        <p>Last Serviced: 10-Mar-2025</p>
+        <p>Next Due: 10-Apr-2025</p>
+      </div>
+    </div>
+
+    <div class="maintenance">
+      <h3>Maintenance Logs</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Equipment</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th>Reported On</th>
+            <th>Resolved On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cooling Tank</td>
+            <td>Compressor Overheat</td>
+            <td>Resolved</td>
+            <td>2025-02-10</td>
+            <td>2025-02-12</td>
+          </tr>
+          <tr>
+            <td>Boiler</td>
+            <td>Leak in Valve</td>
+            <td>Resolved</td>
+            <td>2025-01-20</td>
+            <td>2025-01-21</td>
+          </tr>
+          <tr>
+            <td>Pasteurizer</td>
+            <td>Heating Failure</td>
+            <td>Pending</td>
+            <td>2025-03-28</td>
+            <td>--</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

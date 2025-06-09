@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disease Outbreak Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: white;
+      color: black;
+    }
+    .header { 
+    position: relative;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      display: flex;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      overflow: hidden;
+        }   
+        .header i {
+          margin-right: 10px;
+        }
+    .tracker-container {
+      padding: 2rem;
+    }
+    .tracker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4,  1fr);
+      gap: 1rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+    .card i {
+      color: #3f51b5;
+    }
+    .status {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
+    .status.green { color: green; }
+    .status.red { color: red; }
+    .status.orange { color: orange; }
+    table {
+      width: 100%;
+      margin-top: 2rem;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f1f1;
+    }
+    .section {
+      margin-top: 3rem;
+    }
+    .section h3 {
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <br>
+  <div class="header">
+    <i class="fas fa-virus"></i>
+     Disease Outbreak Tracker
+  </div>
+
+  <div class="tracker-container">
+    <div class="tracker-header">
+      <h2>Health Overview</h2>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3><i class="fas fa-skull-crossbones"></i> Outbreaks Detected</h3>
+        <div class="status red">3</div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-user-shield"></i> Quarantined Cattle</h3>
+        <div class="status orange">12</div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-syringe"></i> Vaccinations Done</h3>
+        <div class="status green">75%</div>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-ambulance"></i> Vet Visits Scheduled</h3>
+        <div class="status green">6</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Recent Outbreak Reports</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Disease</th>
+          <th>Affected Area</th>
+          <th>Cattle Affected</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-04-07</td>
+          <td>Foot & Mouth Disease</td>
+          <td>Shed A</td>
+          <td>7</td>
+          <td style="color: red;">Critical</td>
+        </tr>
+        <tr>
+          <td>2025-04-05</td>
+          <td>Mastitis</td>
+          <td>Shed B</td>
+          <td>3</td>
+          <td style="color: orange;">Under Control</td>
+        </tr>
+        <tr>
+          <td>2025-04-02</td>
+          <td>Brucellosis</td>
+          <td>Central Block</td>
+          <td>2</td>
+          <td style="color: green;">Contained</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section">
+      <h3>Preventive Actions Taken</h3>
+      <ul>
+        <li>Vaccinated 80% of cattle in Shed A</li>
+        <li>Restricted movement between Shed A and B</li>
+        <li>Sanitization protocol enforced twice daily</li>
+        <li>Isolated infected cattle immediately</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Upcoming Veterinary Visits</h3>
+      <ul>
+        <li>2025-04-11: Dr. Sharma – General checkup and mastitis treatment</li>
+        <li>2025-04-14: Dr. Meena – Follow-up for Brucellosis case</li>
+        <li>2025-04-17: Dr. Rao – Annual vaccination schedule review</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
